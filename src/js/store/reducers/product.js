@@ -19,9 +19,33 @@ const getProduct  = (state = initialState,action = {}) => {
         case types.GET_PRODUCTS:
              state.products.products = action.products;
             return Object.assign([],state);
+            break;
         case types.GET_LIST:
             state.list.products = action.products;
             return Object.assign([],state);
+            break;
+        case types.ADD_PRODUCTS:
+
+            let i = 0,l = state.products.products.length,j;
+            let num;
+            for(;i<l;i++){
+               if(state.products.products[i].id==action.id){
+                   if(state.products.products[i].num>0){
+                       j = i;
+                      state.products.products[i].num -=1;
+                   }else{
+                       alert('库存不足')
+                   }
+               }
+            }
+
+            return Object.assign([],state,{
+                products:{
+                    type:'all',
+                    products:state.products
+                }
+            });
+            break;
         default: return state
     }
 }

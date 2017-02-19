@@ -4,7 +4,7 @@
 
 import React from 'react'
 import ComList from './../components/comList.js'
-import  actions from '../store/actions/index.js'
+import  allAction from '../store/actions/all.js'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
@@ -12,10 +12,11 @@ import { bindActionCreators } from 'redux'
 const All  = React.createClass({
     render(){
         const {products,actions} = this.props;
-        actions();
+        console.log(products)
+        actions.getProduct();
         return(
             <div>
-                <ComList products = {products} ></ComList>
+                <ComList actions = {actions.addProduct} products = {products} ></ComList>
             </div>
         )
     }
@@ -29,7 +30,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(actions.getProduct, dispatch)
+    actions: bindActionCreators(allAction, dispatch)
 });
 
 

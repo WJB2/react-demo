@@ -9,18 +9,18 @@ import style from '../../css/comList.scss'
 const comList  = React.createClass({
     propTypes:{
         products: React.PropTypes.object.isRequired,
-        //actions: React.PropTypes.func.isRequired
+        actions: React.PropTypes.func.isRequired
     },
     componentDidMount(){
 
     },
     componentWillReceiveProps(){
-
+        console.log(this.props.products)
     },
     render(){
 
         let products = this.props.products;
-        let t;
+        let t,self =this;
         if(products.type=='all'){
             t = '购买'
         }else{
@@ -44,7 +44,7 @@ const comList  = React.createClass({
                                <td >{item.name}</td>
                                <td >{item.price}</td>
                                <td >{item.num}</td>
-                               <td ><a id = {item.id}>{t}</a></td>
+                               <td ><a onClick = { self.props.actions.bind(self,item.id)} id = {item.id}>{t}</a></td>
                            </tr>
                        )
                     })

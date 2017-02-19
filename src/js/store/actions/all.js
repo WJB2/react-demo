@@ -12,22 +12,22 @@ const _products = [
     {id:4,name:'ipad4',price:5000,num:6},
 ]
 
-const actions = {
+const allActions = {
     getProduct(){
         return {
             type:types.GET_PRODUCTS,
             products:_products
         }
     },
-    getList(){
+    addProduct(id){
+        console.log(id)
         return {
-            type:types.GET_LIST,
-            products:[
-                {id:1,name:'ipad',price:2000,num:2}
-            ]
+            type:types.ADD_PRODUCTS,
+            id:id
         }
     }
+
 }
 
 
-export default  actions
+export default  allActions

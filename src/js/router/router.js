@@ -11,7 +11,9 @@ import All from '../containers/all'
 import List from '../containers/list'
 let store = createStore(allReducers);
 
-console.log(store.getState())
+store.subscribe(function(){
+    console.log(store.getState())
+});
 
 export default  (
 <Provider store = {store}>

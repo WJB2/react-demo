@@ -4,17 +4,17 @@
 
 import React from 'react'
 import ComList from './../components/comList.js'
-import  actions from '../store/actions/index.js'
+import  listActions from '../store/actions/list.js'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 const List  = React.createClass({
     render(){
         const {list,actions} = this.props;
-        actions();
+        actions.getList();
         return(
             <div>
-                <ComList products = {list} ></ComList>
+                <ComList actions = {actions.addProduct} products = {list} ></ComList>
             </div>
         )
     }
@@ -27,7 +27,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(actions.getList, dispatch)
+    actions: bindActionCreators(listActions, dispatch)
 });
 
 
