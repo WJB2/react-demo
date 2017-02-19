@@ -4,7 +4,6 @@
 import React from 'react'
 import {Link} from 'react-router'
 
-
 import app from '../../css/app.scss'
 
 const App  = React.createClass({

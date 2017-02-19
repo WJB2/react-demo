@@ -4,30 +4,35 @@
 
 import React from 'react'
 import ComList from './../components/comList.js'
-
+import  actions from '../store/actions/index.js'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+
 
 const All  = React.createClass({
-
     render(){
-        const {products} = this.props;
+        console.log(this.props)
+        const {products,actions} = this.props;
         return(
             <div>
-                <ComList products = {products} ></ComList>
+                <ComList actions = {actions} products = {products} ></ComList>
             </div>
         )
     }
 })
 
-
-
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         products: state.product.products
     }
 }
 
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(actions, dispatch)
+});
+
 
 export default  connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(All)

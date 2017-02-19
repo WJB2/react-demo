@@ -11,7 +11,15 @@ const _products = [
     {id:3,name:'ipad3',price:4000,num:4},
     {id:4,name:'ipad4',price:5000,num:6},
 ]
-export const getProduct  = products =>({
-    action:types.GET_PRODUCTS,
-    products:_products
-})
+
+const actions = {
+    getProduct(){
+        return {
+            type:types.GET_PRODUCTS,
+            products:_products
+        }
+    }
+}
+
+
+export default  actions
