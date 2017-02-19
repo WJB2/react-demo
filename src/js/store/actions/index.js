@@ -18,6 +18,14 @@ const actions = {
             type:types.GET_PRODUCTS,
             products:_products
         }
+    },
+    getList(){
+        return {
+            type:types.GET_LIST,
+            products:[
+                {id:1,name:'ipad',price:2000,num:2}
+            ]
+        }
     }
 }
 

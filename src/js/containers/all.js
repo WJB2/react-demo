@@ -11,24 +11,25 @@ import { bindActionCreators } from 'redux'
 
 const All  = React.createClass({
     render(){
-        console.log(this.props)
         const {products,actions} = this.props;
+        actions();
         return(
             <div>
-                <ComList actions = {actions} products = {products} ></ComList>
+                <ComList products = {products} ></ComList>
             </div>
         )
     }
 })
 
 const mapStateToProps = state => {
+
     return {
         products: state.product.products
     }
 }
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(actions, dispatch)
+    actions: bindActionCreators(actions.getProduct, dispatch)
 });
 
 

@@ -8,16 +8,24 @@ import React from 'react';
 import style from '../../css/comList.scss'
 const comList  = React.createClass({
     propTypes:{
-        products: React.PropTypes.array.isRequired,
-        actions: React.PropTypes.object.isRequired
+        products: React.PropTypes.object.isRequired,
+        //actions: React.PropTypes.func.isRequired
     },
     componentDidMount(){
-        this.props.actions.getProduct();
+
+    },
+    componentWillReceiveProps(){
 
     },
     render(){
-        let {products}  = this.props;
-     
+
+        let products = this.props.products;
+        let t;
+        if(products.type=='all'){
+            t = '购买'
+        }else{
+            t = '取消'
+        }
         return(
             <table className="m-com-list">
                 <thead>
@@ -30,13 +38,13 @@ const comList  = React.createClass({
                 </thead>
                 <tbody>
                 {
-                    products.map(function(item) {
+                    products.products.map(function(item) {
                        return(
                            <tr key = {item.id}>
                                <td >{item.name}</td>
                                <td >{item.price}</td>
                                <td >{item.num}</td>
-                               <td >{item.id}</td>
+                               <td ><a id = {item.id}>{t}</a></td>
                            </tr>
                        )
                     })

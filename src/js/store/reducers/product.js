@@ -4,14 +4,23 @@
 import * as types from '../actionTypes.js'
 
 const initialState = {
-    products:[],
-    list:[]
+    products:{
+        type:'all',
+        products:[]
+    },
+    list:{
+        type:'list',
+        products:[]
+    },
 }
 
 const getProduct  = (state = initialState,action = {}) => {
     switch (action.type){
         case types.GET_PRODUCTS:
-             state.products = action.products;
+             state.products.products = action.products;
+            return Object.assign([],state);
+        case types.GET_LIST:
+            state.list.products = action.products;
             return Object.assign([],state);
         default: return state
     }
