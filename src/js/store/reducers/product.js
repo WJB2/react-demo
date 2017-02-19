@@ -38,11 +38,15 @@ const getProduct  = (state = initialState,action = {}) => {
                    }
                }
             }
-
+         
             return Object.assign([],state,{
                 products:{
                     type:'all',
                     products:state.products
+                },
+                list:{
+                    type:'list',
+                    products:state.products[j]
                 }
             });
             break;

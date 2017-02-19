@@ -5,14 +5,15 @@
 
 import * as types from '../actionTypes.js'
 
+
+let _products = sessionStorage.products || [];
+
 const listActions = {
 
     getList(){
         return {
             type:types.GET_LIST,
-            products:[
-                {id:1,name:'ipad',price:2000,num:2}
-            ]
+            products:_products
         }
     },
     removeProduct(id){

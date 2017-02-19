@@ -14,7 +14,7 @@ const List  = React.createClass({
         actions.getList();
         return(
             <div>
-                <ComList actions = {actions.addProduct} products = {list} ></ComList>
+                <ComList actions = {actions.removeProduct} products = {list} ></ComList>
             </div>
         )
     }
