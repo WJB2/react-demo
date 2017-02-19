@@ -3,10 +3,13 @@
  */
 import React from 'react';
 import ReactDom from 'react-dom';
+import router from './js/router/router.js'
 
-console.log(React)
+import base from './css/base.scss'
+import style from './css/style.scss'
+
 
 ReactDom.render(
-   <div>123</div>,
+    router,
    document.querySelector('#app')
 )

@@ -1,0 +1,12 @@
+.m-com-list{
+  width: 100%;
+   th,td{
+     width: 25%;
+     text-align: center;
+     line-height: 40px;
+     height: 40px;
+   },
+  thead{
+    border-bottom: 1px solid #ddd;
+  }
+}

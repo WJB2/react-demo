@@ -1,0 +1,31 @@
+.g-app{
+  width:600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+.m-header{
+  width: 600px;
+  position: relative;
+  border-bottom: 1px solid #ddd;
+  margin: 0 auto;
+  li{
+    height: 40px;
+    width: 50%;
+    text-align: center;
+    line-height: 40px;
+
+    float: left;
+
+  }
+  a{
+    text-align: center;
+    color: black;
+    &.active{
+      color: #4c987e;
+      font-weight: bold;
+
+    }
+  }
+}
