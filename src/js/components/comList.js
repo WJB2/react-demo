@@ -40,7 +40,7 @@ const comList  = React.createClass({
                 {
                     products.products.map(function(item) {
                        return(
-                           <tr key = {item.id}>
+                           <tr key = {(new Date()).getTime()*Math.random()}>
                                <td >{item.name}</td>
                                <td >{item.price}</td>
                                <td >{item.num}</td>

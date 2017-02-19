@@ -26,19 +26,38 @@ const getProduct  = (state = initialState,action = {}) => {
             break;
         case types.ADD_PRODUCTS:
 
-            let i = 0,l = state.products.products.length,j;
-            let num;
+            let i = 0,l = state.products.products.length;
+
             for(;i<l;i++){
                if(state.products.products[i].id==action.id){
                    if(state.products.products[i].num>0){
-                       j = i;
                       state.products.products[i].num -=1;
-                   }else{
+                       let i1 = 0,l1 = state.list.products.length,s =true;
+                       if(l1>0){
+                           for(;i1<l1;i1++){
+
+                               if(state.list.products[i1].id==action.id){
+                                   s = false
+                                   state.list.products[i1].num +=1;
+                                   break
+                               }
+                           }
+
+                          if(s){
+                              state.list.products.push(Object.assign({},state.products.products[i],{num:1}))
+                          }
+
+                       }else{
+
+                           state.list.products.push(Object.assign({},state.products.products[i],{num:1}))
+                       }
+
+              }else{
                        alert('库存不足')
                    }
                }
             }
-         
+
             return Object.assign([],state,{
                 products:{
                     type:'all',
@@ -46,7 +65,7 @@ const getProduct  = (state = initialState,action = {}) => {
                 },
                 list:{
                     type:'list',
-                    products:state.products[j]
+                    products:state.list.products
                 }
             });
             break;

@@ -12,7 +12,7 @@ import { bindActionCreators } from 'redux'
 const All  = React.createClass({
     render(){
         const {products,actions} = this.props;
-        console.log(products)
+
         actions.getProduct();
         return(
             <div>

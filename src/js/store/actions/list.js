@@ -10,10 +10,11 @@ let _products = sessionStorage.products || [];
 
 const listActions = {
 
-    getList(){
+    getList(products = []){
+
         return {
             type:types.GET_LIST,
-            products:_products
+            products:products
         }
     },
     removeProduct(id){

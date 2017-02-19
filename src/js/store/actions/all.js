@@ -12,6 +12,7 @@ const _products = [
     {id:4,name:'ipad4',price:5000,num:6},
 ]
 
+
 const allActions = {
     getProduct(){
         return {
@@ -20,7 +21,7 @@ const allActions = {
         }
     },
     addProduct(id){
-        console.log(id)
+
         return {
             type:types.ADD_PRODUCTS,
             id:id

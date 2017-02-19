@@ -11,7 +11,7 @@ import { bindActionCreators } from 'redux'
 const List  = React.createClass({
     render(){
         const {list,actions} = this.props;
-        actions.getList();
+        actions.getList(list.products);
         return(
             <div>
                 <ComList actions = {actions.removeProduct} products = {list} ></ComList>
