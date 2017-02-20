@@ -15,6 +15,7 @@ const initialState = {
 }
 
 const getProduct  = (state = initialState,action = {}) => {
+    let i = 0;
     switch (action.type){
         case types.GET_PRODUCTS:
              state.products.products = action.products;
@@ -25,9 +26,7 @@ const getProduct  = (state = initialState,action = {}) => {
             return Object.assign([],state);
             break;
         case types.ADD_PRODUCTS:
-
-            let i = 0,l = state.products.products.length;
-
+            let l = state.products.products.length;
             for(;i<l;i++){
                if(state.products.products[i].id==action.id){
                    if(state.products.products[i].num>0){
@@ -61,7 +60,43 @@ const getProduct  = (state = initialState,action = {}) => {
             return Object.assign([],state,{
                 products:{
                     type:'all',
-                    products:state.products
+                    products:state.products.products
+                },
+                list:{
+                    type:'list',
+                    products:state.list.products
+                }
+            });
+            break;
+        case types.REMOVE_PRODUCTS:
+            let listLength = state.list.products.length;
+            for(;i<listLength;i++){
+                if(state.list.products[i].id==action.id){
+                    if(state.list.products[i].num>1){
+                        state.list.products[i].num -=1;
+                    }else{
+                        state.list.products.splice(i,1);
+                    }
+
+                    let listLength1 = 0,productsLength = state.products.products.length;
+
+                        for(;listLength1<productsLength;listLength1++){
+
+                            if(state.products.products[listLength1].id==action.id){
+                                state.products.products[listLength1].num +=1;
+                                break
+                            }
+                        }
+
+
+                    break
+                }
+            }
+
+            return Object.assign([],state,{
+                products:{
+                    type:'all',
+                    products:state.products.products
                 },
                 list:{
                     type:'list',
