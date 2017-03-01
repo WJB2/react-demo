@@ -18,8 +18,14 @@ const getProduct  = (state = initialState,action = {}) => {
     let i = 0;
     switch (action.type){
         case types.GET_PRODUCTS:
+            console.log(action.products)
              state.products.products = action.products;
-            return Object.assign([],state);
+
+              return Object.assign([],state,{
+                products:{
+                    type:'all',
+                    products:state.products.products
+                }});
             break;
         case types.GET_LIST:
             state.list.products = action.products;

@@ -20,18 +20,9 @@ const List  = React.createClass({
     }
 })
 
-const mapStateToProps = state => {
-    return {
-        list: state.product.list
-    }
-}
-
-const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(listActions, dispatch)
-});
 
 
 export default  connect(
-    mapStateToProps,
-    mapDispatchToProps
+    state => ({ list: state.product.list}),
+    dispatch => ({actions: bindActionCreators(listActions, dispatch)})
 )(List)
