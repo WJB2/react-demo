@@ -48,4 +48,3 @@ npm run build
 
 ```
 
-mongod.exe --logpath "D:\mongodb\logs\mongodb.log" --logappend --dbpath "D:\mongodb\data\db"   --install
